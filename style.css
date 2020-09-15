@@ -1,0 +1,175 @@
+
+#knoppen {
+margin-top: 15%;
+}
+
+#knoppen img {
+  transform: scale(0.75);
+  }
+
+#datum {
+  text-align: center;
+  font-family: Cookie;
+  font-style: italic;
+  font-size: xx-large;
+}
+
+#urenwijzer, 
+#minutenwijzer, 
+#secondewijzer
+ {
+  border-left: 6px solid black;
+  position: absolute;
+  height: 400px;
+  left: 50%;
+  margin-top: 55px;
+  margin-left: -5px;
+  transform-origin: 50% 65%;
+ }
+
+
+#minutenwijzer, 
+#secondewijzer {
+  border-left: 4px solid red;
+  z-index: 10;
+  height: 500px;
+  margin-top: -5px;
+  margin-left: -3px;
+  }
+
+
+#secondewijzer {
+  border-left: 2px solid green;
+  z-index: 20;
+ }
+
+#twee,#vier, 
+#vijf,#acht, 
+#tien, #elf {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+ /* 320 px is afstand tot middenpunt wijzers, 
+ berekend met sinus en cosinus 
+*/
+
+#twee {
+  transform: translate(277.13px,-160px);
+ }
+
+ #vier {
+  transform: translate(277.13px,160px);
+ }
+
+#vijf {
+  transform: translate(160px,277.13px);
+  }
+
+#acht {
+  transform: translate(-277.13px,160px);
+  }
+
+#tien {
+  transform: translate(-277.13px,-160px);
+}
+
+#elf {
+  transform: translate(-160px,-277.13px);
+  }
+
+  #twee, #acht {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  #vier, #elf {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 25px;
+  }
+
+button {
+  margin: 10px;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}
+
+#center {
+  position: relative;
+}
+
+#buttons {
+  margin: 0;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 750px) {
+
+#datum {
+    font-size: x-large;
+}
+
+#urenwijzer, 
+#minutenwijzer, 
+#secondewijzer {
+  top: 10%;
+  height: 240px;
+  margin-top: 30px;
+  margin-left: -3px;
+ }
+
+ #minutenwijzer,
+ #secondewijzer {
+   height: 300px;
+   margin-top: -10px;
+   margin-left: -3.6px;
+ }
+
+ /* 200 px is afstand tot middenpunt wijzers */ 
+
+#twee {
+  transform: translate(173.21px,-100px);
+ }
+
+ #vier {
+  transform: translate(173.21px,100px);
+ }
+
+#vijf {
+  transform: translate(100px,173.21px);
+  }
+
+#acht {
+  transform: translate(-173.21px,100px);
+  }
+
+#tien {
+  transform: translate(-173.21px,-100px);
+}
+
+#elf {
+  transform: translate(-100px,-173.21px);
+  }
+
+ #knoppen {
+   display: none;
+ }
+
+ #buttons {
+  width: 350px;
+  bottom: 0;
+ }
+
+ #buttons button {
+   margin: 5px;
+ }
+}
