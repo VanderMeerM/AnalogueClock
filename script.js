@@ -41,16 +41,14 @@ function showTime() {
     ${maanden[month]}
     ${year}`;
     
-// change background in grey when evening or night 
+// change background in red when evening or grey when night 
 
-  if (hour < 6) {
-  document.body.style.backgroundColor= "grey"
- } else if (hour >= 18) {
-  document.body.style.backgroundColor= "#FF4C00"
- } else {
+  (hour < 6) ?
+  document.body.style.backgroundColor= "grey":
+ (hour >= 18) ?
+  document.body.style.backgroundColor= "#FF4C00":
   document.body.style.backgroundColor = "white"
- }
-
+ 
 };
 
 showTime();
