@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Fotos/Achtergrondfoto/favicon.ico">
+    <script defer src="./analogeklok/script.js"></script>
+    <link rel="stylesheet" href="./analogeklok/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <title>Artistieke, analoge klok</title>
+</head>
+
+
+<header>
+ <div id="datum"></div>
+</header>
+
+<body>
+
+    <hr id="urenwijzer" class="line">
+    <hr id="minutenwijzer"> 
+    <hr id="secondewijzer">
+    
+    <div id="twee">deux</div>
+    <div id="vier">4</div>
+    <div id="vijf">V</div>
+    <div id="acht">ocho</div>
+    <div id="tien">X</div>
+    <div id="elf">11</div>
+
+<div id="knoppen">
+        <img src='./analogeklok/sound_on.png' onclick="playtick()">
+        <br>
+        <img src='./analogeklok/sound_off.png' onclick="mutetick()">
+    </div>
+
+</body>
+
+<footer>
+
+    <div id="center">
+
+    <div id="buttons">
+        Toon tijd (en datum) in*:
+    <br>
+    <button class="active" onclick="showLocalTime()">Lokaal</button>
+
+    <button onclick="setNewTime('Europe','Amsterdam')">Nijmegen</button>
+    
+    <button onclick="setNewTime('Pacific','Auckland')">Queenstown (NZ)</button>
+        
+    <button onclick="setNewTime('Asia','Shanghai')">Beijing</button>
+    
+    <button onclick="setNewTime('America','Sao_Paulo')">Rio de Janeiro</button>
+    
+    <button onclick="setNewTime('America','Lima')">Lima</button>
+    
+    <button onclick="setNewTime('America','Los_Angeles')">San Francisco</button>
+    <br>
+   * <u>Achtergrond:</u> 0-6 uur (nacht) grijs, 6-18 uur (overdag) wit, 18-24 uur (avond) rood. 
+   
+      </div>
+</div>
+
+</footer>
+
+    <audio id="tick">
+        <source src="./analogeklok/tick.wav" type="audio/ogg">
+    </audio>
+
+   
+</html>
