@@ -43,10 +43,12 @@ function showTime() {
     
 // change background in grey when evening or night 
 
-  if (hour < 6 || hour >= 18) {
+  if (hour < 6) {
   document.body.style.backgroundColor= "grey"
+ } else if (hour >= 18) {
+  document.body.style.backgroundColor= "#FF4C00"
  } else {
-   document.body.style.backgroundColor = "white"
+  document.body.style.backgroundColor = "white"
  }
 
 };
