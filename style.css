@@ -1,4 +1,54 @@
 
+:root {
+  --big-circle-size: 400px; 
+  --small-circle-size: calc(var(--big-circle-size) * 0.25);
+  --radius_markers_l: 380;
+  --radius_markers_r: 360;
+  --sin_cos_value1: 0,866025404;
+  --sin_cos_value2: 0,5;
+}
+
+body {
+  width: 100%;
+}
+
+.container_clock_label {
+  display: flex;
+  flex-direction: column;
+  margin: 3%;
+}
+
+.container_small_clocks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  }
+
+.big_clock_container, 
+.small_clock_container {
+   display: flex;
+   position: relative;
+   margin: 3% auto;
+   width: fit-content;
+}
+
+.big_circle {
+  width: calc(var(--big-circle-size) * 2);
+  height: calc(var(--big-circle-size) * 2);
+  clip-path: circle(var(--big-circle-size));
+  position: relative;
+}
+
+.small_circle {
+  width: calc(var(--small-circle-size) * 2);
+  height: calc(var(--small-circle-size) * 2);
+  clip-path: circle(var(--small-circle-size));
+}
+
+.background_clock {
+  background-color: #f8f7f7;
+}
+
 #knoppen {
 margin-top: 15%;
 }
@@ -14,78 +64,167 @@ margin-top: 15%;
   font-size: xx-large;
 }
 
-#urenwijzer, 
-#minutenwijzer, 
-#secondewijzer
+.big_clock_container #urenwijzer_big, 
+.big_clock_container #minutenwijzer_big, 
+.big_clock_container #secondewijzer_big, 
+
+.small_clock_container #urenwijzer_small0,
+.small_clock_container #minutenwijzer_small0,
+.small_clock_container #secondewijzer_small0,
+
+.small_clock_container #urenwijzer_small1,
+.small_clock_container #minutenwijzer_small1,
+.small_clock_container #secondewijzer_small1,
+
+.small_clock_container #urenwijzer_small2,
+.small_clock_container #minutenwijzer_small2,
+.small_clock_container #secondewijzer_small2,
+
+.small_clock_container #urenwijzer_small3,
+.small_clock_container #minutenwijzer_small3,
+.small_clock_container #secondewijzer_small3,
+
+.small_clock_container #urenwijzer_small4,
+.small_clock_container #minutenwijzer_small4,
+.small_clock_container #secondewijzer_small4
  {
   border-left: 6px solid black;
   position: absolute;
   height: 400px;
+  top: 10%;
   left: 50%;
   margin-top: 55px;
   margin-left: -5px;
   transform-origin: 50% 65%;
+  display: grid;
  }
 
 
-#minutenwijzer, 
-#secondewijzer {
+.big_clock_container #minutenwijzer_big, 
+.big_clock_container #secondewijzer_big, 
+
+.small_clock_container #minutenwijzer_small0,
+.small_clock_container #secondewijzer_small0,
+
+.small_clock_container #minutenwijzer_small1,
+.small_clock_container #secondewijzer_small1, 
+
+.small_clock_container #minutenwijzer_small2,
+.small_clock_container #secondewijzer_small2,
+
+.small_clock_container #minutenwijzer_small3,
+.small_clock_container #secondewijzer_small3,
+
+.small_clock_container #minutenwijzer_small4,
+.small_clock_container #secondewijzer_small4 
+{
   border-left: 4px solid red;
   z-index: 10;
   height: 500px;
   margin-top: -5px;
-  margin-left: -3px;
-  }
+}
 
+.big_clock_container #secondewijzer_big, 
+.small_clock_container #secondewijzer_small0,
+.small_clock_container #secondewijzer_small1,
+.small_clock_container #secondewijzer_small2,
+.small_clock_container #secondewijzer_small3,
+.small_clock_container #secondewijzer_small4 
 
-#secondewijzer {
+ {
   border-left: 2px solid green;
   z-index: 20;
  }
 
-#twee,#vier, 
-#vijf,#acht, 
-#tien, #elf {
+.small_clock_container #urenwijzer_small0,
+.small_clock_container #urenwijzer_small1,
+.small_clock_container #urenwijzer_small2,
+.small_clock_container #urenwijzer_small3,
+.small_clock_container #urenwijzer_small4
+
+ {
+  height: 100px;
+  top: 15%;
+  left: 50%;
+  margin-top: 0px;
+ }
+
+.small_clock_container #minutenwijzer_small0, 
+.small_clock_container #secondewijzer_small0,
+
+.small_clock_container #minutenwijzer_small1, 
+.small_clock_container #secondewijzer_small1,
+ 
+.small_clock_container #minutenwijzer_small2, 
+.small_clock_container #secondewijzer_small2,
+
+.small_clock_container #minutenwijzer_small3, 
+.small_clock_container #secondewijzer_small3,
+
+.small_clock_container #minutenwijzer_small4,
+.small_clock_container #secondewijzer_small4
+ 
+ {
+  height: 125px;
+ }
+
+ #place {
+text-align: center;
+padding: 4px; 
+border: 1px black solid;
+font-family: 'Courier New', Courier, monospace;
+}
+
+#twee,
+#vier, 
+#vijf,
+#acht, 
+#tien, 
+#elf {
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 50%;
   font-size: 20px;
   font-weight: bold;
 }
 
- /* 320 px is afstand tot middenpunt wijzers, 
- berekend met sinus en cosinus 
+ /* 
+ Positie cijfers 
+ straal 380 px berekend met sinus en cosinus (329 resp. 190px) - cijfers links (8,10,11)
+ straal 360 px berekend met sinus en cosinus (312 resp. 180px) - rechts (2,4,5)
 */
 
-#twee {
-  transform: translate(277.13px,-160px);
+.big_clock_container #twee {
+  transform: translate(312px,-180px);
  }
 
- #vier {
-  transform: translate(277.13px,160px);
+ .big_clock_container #vier {
+  transform: translate(312px,180px);
  }
 
-#vijf {
-  transform: translate(160px,277.13px);
+.big_clock_container #vijf {
+  transform: translate(180px,312px);
   }
 
-#acht {
-  transform: translate(-277.13px,160px);
+.big_clock_container #acht {
+  transform: translate(-329px,170px);
   }
 
-#tien {
-  transform: translate(-277.13px,-160px);
+.big_clock_container #tien {
+  transform: translate(-329px,-190px);
 }
 
-#elf {
-  transform: translate(-160px,-277.13px);
+.big_clock_container #elf {
+  transform: translate(-190px,-329px);
   }
 
-  #twee, #acht {
+.big_clock_container #twee, 
+.big_clock_container #acht {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
-  #vier, #elf {
+.big_clock_container #vier, 
+.big_clock_container #elf {
   font-family: 'UnifrakturCook', cursive;
   font-size: 25px;
   }
@@ -112,12 +251,50 @@ button {
   transform: translate(-50%, -50%);
 }
 
+/*
+@media (max-height: 1100px) {
+
+:root {
+  --big-circle-size: 200px; 
+  --radius_markers_l: 190;
+  --radius_markers_r: 180;
+  }
+
+ .big_clock_container {
+  height: 80vh;
+}
+
+}
+*/
+
+@media (max-height: 1000px) {
+
+  .main_container {
+  display: flex;
+  flex-direction: row-reverse; 
+}
+
+.container_clock_label {
+  margin: 5%;
+};
+
+.container_small_clocks {
+  display: block;
+  width: fit-content;
+  margin-left: 3%;
+}
+
+.small_clock_container {
+  margin: 3% 0px;
+}
+}
+
 @media (max-width: 750px) {
 
 #datum {
     font-size: x-large;
 }
-
+/*
 #urenwijzer, 
 #minutenwijzer, 
 #secondewijzer {
@@ -134,7 +311,7 @@ button {
    margin-left: -3.6px;
  }
 
- /* 200 px is afstand tot middenpunt wijzers */ 
+  200 px is afstand tot middenpunt wijzers 
 
 #twee {
   transform: translate(173.21px,-100px);
@@ -159,7 +336,7 @@ button {
 #elf {
   transform: translate(-100px,-173.21px);
   }
-
+*/ 
  #knoppen {
    display: none;
  }
