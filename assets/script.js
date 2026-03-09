@@ -48,12 +48,15 @@ function mutetick() {
     document.getElementById(id).classList.add('clock_number_black');  
     document.getElementById('urenwijzer_big').classList.add('urenwijzer_black'); 
     document.querySelector('.big_circle').classList.add('background_clock_grey'); 
+    document.getElementById('current_date').style.color = 'black'; 
 
    }
 else {
    document.getElementById(id).classList.add('clock_number_white');  
    document.getElementById('urenwijzer_big').classList.add('urenwijzer_white'); 
    document.querySelector('.big_circle').classList.add('background_clock_black'); 
+   document.getElementById('current_date').style.color = 'white'; 
+
  }
  }
 
