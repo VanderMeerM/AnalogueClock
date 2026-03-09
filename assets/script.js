@@ -1,5 +1,7 @@
+
 const maanden = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
 const dagen = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'];
+
 
 let day = new Date().getDay();
 let date = new Date().getDate();
@@ -20,8 +22,66 @@ function mutetick() {
   tick.muted = true;
   }
 
+  function showLocalTime(hr, min, sec) {
 
-function getTimeFromTimeZone(continent, city, hr, min, sec) {
+    /*
+    let apiUrl = `https://time.now/developer/api/ip`;
+  
+  fetch(apiUrl, { method: 'GET' })
+      .then((res) => {
+       let data = res.json(); 
+      return data;
+      })
+    .then((arraydata) => {
+   //let hour = parseInt(arraydata.datetime.split('T')[1].split(':')[0]);
+
+
+ //let time = new Date().getTime();
+*/
+ const hour = new Date().getHours();
+ const minute = new Date().getMinutes();
+ const seconds = new Date().getSeconds(); 
+
+ 
+ function colorNumbers(id) {
+   if (hour >= 6 && hour <= 18) {
+    document.getElementById(id).classList.add('clock_number_black');  
+    document.getElementById('urenwijzer_big').classList.add('urenwijzer_black'); 
+    document.querySelector('.big_circle').classList.add('background_clock_grey'); 
+
+   }
+else {
+   document.getElementById(id).classList.add('clock_number_white');  
+   document.getElementById('urenwijzer_big').classList.add('urenwijzer_white'); 
+   document.querySelector('.big_circle').classList.add('background_clock_black'); 
+ }
+ }
+
+colorNumbers('twee');
+colorNumbers('vier');
+colorNumbers('vijf');
+colorNumbers('acht');
+colorNumbers('tien');
+colorNumbers('elf');
+
+
+ document.getElementById(hr).
+ style.transform = `rotate(${(hour * 30) + (minute * 0.5)}deg)`;
+
+ document.getElementById(min).
+ style.transform = `rotate(${(minute * 6) + (seconds * 0.1)}deg)`;
+
+ document.getElementById(sec).
+ style.transform = `rotate(${(seconds * 6)}deg)`;
+
+  document.getElementById('current_date').textContent = 
+  dagen[day] + ' ' + date + ' ' + maanden[month] + ' ' + year;
+
+ }
+
+function getAndShowTime(continent, city, clock_id, hr, min, sec) {
+
+const places=['Queenstown (NZ)', 'Beijing', 'Rio de Janeiro', 'Lima', 'San Francisco'];
 
 let apiUrl = `https://time.now/developer/api/timezone/${continent}/${city}`;
   
@@ -38,6 +98,21 @@ let apiUrl = `https://time.now/developer/api/timezone/${continent}/${city}`;
  const minute = new Date(time).getMinutes();
  const seconds = new Date(time).getSeconds();
 
+ let date = arraydata.datetime.split('-')[2].split('T')[0];
+ let month = arraydata.datetime.split('-')[1];
+
+if (hour >= 6 && hour <= 17) {
+   document.getElementById(hr).classList.add('urenwijzer_black'); 
+   document.getElementById(clock_id).children[0].classList.add('background_clock_grey'); 
+
+   }
+
+ else {
+  document.getElementById(hr).classList.add('urenwijzer_white'); 
+  document.getElementById(clock_id).children[0].classList.add('background_clock_black'); 
+ }
+
+
  document.getElementById(hr).
  style.transform = `rotate(${(hour * 30) + (minute * 0.5)}deg)`;
 
@@ -47,7 +122,19 @@ let apiUrl = `https://time.now/developer/api/timezone/${continent}/${city}`;
  document.getElementById(sec).
  style.transform = `rotate(${(seconds * 6)}deg)`;
 
+//console.dir(document.getElementById('clock0').nextElementSibling.textContent);
+document.getElementById(clock_id).nextElementSibling.innerHTML = places[clock_id.split('k')[1]] + '<br>' + date + '-' + month
+//document.getElementById(clock_id).nextElementSibling.textContent; // + '<br>' + date + '-' + month; 
 /*
+colorNumbers('twee');
+colorNumbers('vier');
+colorNumbers('vijf');
+colorNumbers('acht');
+colorNumbers('tien');
+colorNumbers('elf');
+
+
+
   document.getElementById('datum').textContent =
    `${dagen[day]} 
     ${date} 
@@ -95,30 +182,33 @@ else {
         
   }
   
-
-getTimeFromTimeZone('Europe', 'Amsterdam', 'urenwijzer_big', 'minutenwijzer_big', 'secondewijzer_big');
-getTimeFromTimeZone('Pacific', 'Auckland', 'urenwijzer_small0', 'minutenwijzer_small0','secondewijzer_small0');
-getTimeFromTimeZone('Asia','Shanghai','urenwijzer_small1', 'minutenwijzer_small1','secondewijzer_small1');
-getTimeFromTimeZone('America','Sao_Paulo', 'urenwijzer_small2', 'minutenwijzer_small2', 'secondewijzer_small2');
-getTimeFromTimeZone('America','Lima', 'urenwijzer_small3', 'minutenwijzer_small3', 'secondewijzer_small3');
-getTimeFromTimeZone('America','Los_Angeles', 'urenwijzer_small4', 'minutenwijzer_small4', 'secondewijzer_small4');
+ showLocalTime('urenwijzer_big', 'minutenwijzer_big', 'secondewijzer_big');
+//getAndShowTime('Europe', 'Amsterdam', 'urenwijzer_big', 'minutenwijzer_big', 'secondewijzer_big');
+getAndShowTime('Pacific', 'Auckland', 'clock0', 'urenwijzer_small0', 'minutenwijzer_small0','secondewijzer_small0');
+getAndShowTime('Asia','Shanghai','clock1','urenwijzer_small1', 'minutenwijzer_small1','secondewijzer_small1');
+getAndShowTime('America','Sao_Paulo', 'clock2','urenwijzer_small2', 'minutenwijzer_small2', 'secondewijzer_small2');
+getAndShowTime('America','Lima', 'clock3','urenwijzer_small3', 'minutenwijzer_small3', 'secondewijzer_small3');
+getAndShowTime('America','Los_Angeles', 'clock4', 'urenwijzer_small4', 'minutenwijzer_small4', 'secondewijzer_small4');
 
 
 setInterval(() => { 
-  getTimeFromTimeZone('Europe','Amsterdam', 'urenwijzer_big', 'minutenwijzer_big', 'secondewijzer_big');
-  getTimeFromTimeZone('Pacific','Auckland', 'urenwijzer_small0', 'minutenwijzer_small0', 'secondewijzer_small0'); 
-  getTimeFromTimeZone('Asia','Shanghai', 'urenwijzer_small1', 'minutenwijzer_small1', 'secondewijzer_small1');
-  getTimeFromTimeZone('America','Sao_Paulo', 'urenwijzer_small2', 'minutenwijzer_small2', 'secondewijzer_small2');
-  getTimeFromTimeZone('America','Lima', 'urenwijzer_small3', 'minutenwijzer_small3', 'secondewijzer_small3');
-  getTimeFromTimeZone('America','Los_Angeles', 'urenwijzer_small4', 'minutenwijzer_small4', 'secondewijzer_small4');
+   showLocalTime('urenwijzer_big', 'minutenwijzer_big', 'secondewijzer_big');
+  //getAndShowTime('Europe','Amsterdam', 'urenwijzer_big', 'minutenwijzer_big', 'secondewijzer_big');
+  getAndShowTime('Pacific','Auckland','clock0','urenwijzer_small0', 'minutenwijzer_small0', 'secondewijzer_small0'); 
+  getAndShowTime('Asia','Shanghai', 'clock1', 'urenwijzer_small1', 'minutenwijzer_small1', 'secondewijzer_small1');
+  getAndShowTime('America','Sao_Paulo', 'clock2','urenwijzer_small2', 'minutenwijzer_small2', 'secondewijzer_small2');
+  getAndShowTime('America','Lima', 'clock3','urenwijzer_small3', 'minutenwijzer_small3', 'secondewijzer_small3');
+  getAndShowTime('America','Los_Angeles','clock4', 'urenwijzer_small4', 'minutenwijzer_small4', 'secondewijzer_small4');
 }  , 1000);
 
 
+/* 
 
+Niet meer gebruikte code 
 
 function showTime_small() {
  let time = new Date().getTime();
- let hour = getTimeFromTimeZone('Pacific','Auckland');
+ let hour = getAndShowTime('Pacific','Auckland');
 
  const minute = new Date(time).getMinutes();
  const seconds = new Date(time).getSeconds();
@@ -187,3 +277,4 @@ activeClass[0].classList.remove("active");
 event.target.classList.add("active")
 }
 
+*/

@@ -12,7 +12,12 @@ body {
   width: 100%;
 }
 
-.container_clock_label {
+.container_clock_label0,
+.container_clock_label1,
+.container_clock_label2,
+.container_clock_label3,
+.container_clock_label4
+ {
   display: flex;
   flex-direction: column;
   margin: 3%;
@@ -28,7 +33,7 @@ body {
 .small_clock_container {
    display: flex;
    position: relative;
-   margin: 3% auto;
+   margin: auto;
    width: fit-content;
 }
 
@@ -45,24 +50,23 @@ body {
   clip-path: circle(var(--small-circle-size));
 }
 
-.background_clock {
+.background_clock_grey {
   background-color: #f8f7f7;
 }
 
+.background_clock_black {
+  background-color: black;
+}
+
 #knoppen {
-margin-top: 15%;
+display: flex;
+justify-content: center;
+height: 50px;
 }
 
 #knoppen img {
-  transform: scale(0.75);
+  transform: scale(0.6);
   }
-
-#datum {
-  text-align: center;
-  font-family: Cookie;
-  font-style: italic;
-  font-size: xx-large;
-}
 
 .big_clock_container #urenwijzer_big, 
 .big_clock_container #minutenwijzer_big, 
@@ -88,7 +92,6 @@ margin-top: 15%;
 .small_clock_container #minutenwijzer_small4,
 .small_clock_container #secondewijzer_small4
  {
-  border-left: 6px solid black;
   position: absolute;
   height: 400px;
   top: 10%;
@@ -99,6 +102,14 @@ margin-top: 15%;
   display: grid;
  }
 
+ .urenwijzer_black {
+    border-left: 6px solid black;
+ }
+
+ .urenwijzer_white {
+    border-left: 6px solid white;
+
+ }
 
 .big_clock_container #minutenwijzer_big, 
 .big_clock_container #secondewijzer_big, 
@@ -168,7 +179,7 @@ margin-top: 15%;
   height: 125px;
  }
 
- #place {
+#place {
 text-align: center;
 padding: 4px; 
 border: 1px black solid;
@@ -186,6 +197,25 @@ font-family: 'Courier New', Courier, monospace;
   top: 50%;
   font-size: 20px;
   font-weight: bold;
+}
+
+#current_date {
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  text-align: center;
+  font-family: Cookie;
+  font-style: italic;
+  font-size: x-large;
+}
+
+
+.clock_number_white {
+  color: white;
+}
+
+.clock_number_black {
+  color: black;
 }
 
  /* 
@@ -267,14 +297,20 @@ button {
 }
 */
 
-@media (max-height: 1000px) {
+@media screen and (max-height: 1200px) and (min-width: 800px) {
 
   .main_container {
   display: flex;
   flex-direction: row; 
 }
 
-.container_clock_label {
+.container_clock_label0,
+.container_clock_label1,
+.container_clock_label2,
+.container_clock_label3,
+.container_clock_label4
+
+ {
   margin: 5%;
 };
 
@@ -289,7 +325,7 @@ button {
 }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
 
 #datum {
     font-size: x-large;

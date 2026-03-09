@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
     <title>Analoge klok</title>
-    <link rel="stylesheet" href="./style.css">
-    <script defer src="./script.js"></script> 
+    <link rel="stylesheet" href="./assets/style.css">
+    <script defer src="./assets/script.js"></script> 
 </head>
 
 <?php
@@ -13,17 +15,28 @@
 echo '
 <body>
 
-<div id="datum"></div>
+<div id="knoppen">';
+ /*
+        <img src="./assets/sound_on.png" onclick="playtick()">
+        <br>
+        <img src="./assets/sound_off.png" onclick="mutetick()">
+        */
+
+echo '
+</div>
+
 
 <div class="main_container"> 
 
 <div class="big_clock_container">
 
-<div class="big_circle background_clock">
+<div class="big_circle">
 
  <hr id="urenwijzer_big">
  <hr id="minutenwijzer_big"> 
  <hr id="secondewijzer_big">
+
+ <div id="current_date"></div>
     
  <div id="twee">deux</div>
  <div id="vier">4</div>
@@ -45,17 +58,15 @@ getHourTimezone();
 */
 
 
-$places=['Queenstown (NZ)', 'Beijing', 'Rio de Janeiro', 'Lima', 'San Francisco'];
-
 for ($i=0; $i < 5; $i++) {
 
 echo '
 
-<div class="container_clock_label">
+<div class="container_clock_label'.$i.'">
 
 <div id="clock'.$i.'" class="small_clock_container">
 
-<div class="small_circle background_clock">
+<div class="small_circle">
 
  <hr id="urenwijzer_small'.$i.'">
  <hr id="minutenwijzer_small'.$i.'"> 
@@ -63,7 +74,7 @@ echo '
 
 </div>
 </div>
-<div id="place">'.$places[$i].'</div>
+<div id="place"></div>
 </div>';
 }
 ?>
@@ -72,4 +83,9 @@ echo '
 </div>
 
 </body>
+
+   <audio id="tick">
+        <source src="./assets/tick.wav" type="audio/ogg">
+    </audio>
+
 </html>
