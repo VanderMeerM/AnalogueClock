@@ -281,21 +281,12 @@ button {
   transform: translate(-50%, -50%);
 }
 
-/*
-@media (max-height: 1100px) {
-
-:root {
-  --big-circle-size: 200px; 
-  --radius_markers_l: 190;
-  --radius_markers_r: 180;
-  }
-
- .big_clock_container {
-  height: 80vh;
-}
+footer {
+  margin-left: 2%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
 
 }
-*/
 
 @media screen and (max-height: 1200px) and (min-width: 800px) {
 
@@ -330,49 +321,7 @@ button {
 #datum {
     font-size: x-large;
 }
-/*
-#urenwijzer, 
-#minutenwijzer, 
-#secondewijzer {
-  top: 10%;
-  height: 240px;
-  margin-top: 30px;
-  margin-left: -3px;
- }
 
- #minutenwijzer,
- #secondewijzer {
-   height: 300px;
-   margin-top: -10px;
-   margin-left: -3.6px;
- }
-
-  200 px is afstand tot middenpunt wijzers 
-
-#twee {
-  transform: translate(173.21px,-100px);
- }
-
- #vier {
-  transform: translate(173.21px,100px);
- }
-
-#vijf {
-  transform: translate(100px,173.21px);
-  }
-
-#acht {
-  transform: translate(-173.21px,100px);
-  }
-
-#tien {
-  transform: translate(-173.21px,-100px);
-}
-
-#elf {
-  transform: translate(-100px,-173.21px);
-  }
-*/ 
  #knoppen {
    display: none;
  }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
     <title>Analoge klok</title>
@@ -10,7 +11,8 @@
     <script defer src="./assets/script.js"></script> 
 </head>
 
-<?php
+
+<?php 
 
 echo '
 <body>
@@ -52,12 +54,6 @@ echo '
 <div class="container_small_clocks">';
 
 
-/*include('./getHour.php'); 
-
-getHourTimezone();
-*/
-
-
 for ($i=0; $i < 5; $i++) {
 
 echo '
@@ -82,10 +78,14 @@ echo '
 </div>
 </div>
 
-</body>
-
    <audio id="tick">
         <source src="./assets/tick.wav" type="audio/ogg">
     </audio>
+
+</body>
+
+<footer>
+    Klok lichtgrijs: 6-18 uur; zwart: 18-6 uur 
+</footer>
 
 </html>

@@ -1,5 +1,10 @@
 
-1. knoppen boven
+- knoppen boven (voor tikken klok) 
 
-2. centreren kleine klokken bij kleiner scherm 
+- centreren kleine klokken bij kleiner scherm 
+
+
+
+- bij klik op kleine klok wordt deze groot (met betreffende tijd in die stad) 
+en verhuist grote klok naar de 'kleintjes' 
 
