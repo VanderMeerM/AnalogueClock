@@ -28,6 +28,9 @@ function mutetick() {
  const minute = new Date().getMinutes();
  const seconds = new Date().getSeconds(); 
 
+ if ( (hour == 6 || hour == 18) && minute == 0 && seconds == 0) {
+  window.location.reload();
+}
  
  function colorNumbers(id) {
    if (hour >= 6 && hour <= 18) {
@@ -89,7 +92,11 @@ let apiUrl = `https://time.now/developer/api/timezone/${continent}/${city}`;
  let date = arraydata.datetime.split('-')[2].split('T')[0];
  let month = arraydata.datetime.split('-')[1];
 
-if (hour >= 6 && hour <= 17) {
+ if ( (hour == 6 || hour == 18) && minute == 0 && seconds == 0) {
+ window.location.reload();
+}
+ 
+if (hour >= 6 && hour <= 18) {
    document.getElementById(hr).classList.add('urenwijzer_black'); 
    document.getElementById(clock_id).children[0].classList.remove('background_clock_black'); 
    document.getElementById(clock_id).children[0].classList.add('background_clock_grey'); 
